@@ -122,10 +122,6 @@ func search(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
-	for key,val := range pathParams{
-		fmt.Println(key+"->"+val)
-	}
-
 	params, errMsg := checkParams(pathParams)
 	if strings.Compare(errMsg, "") != 0 {
 		w.Write(getBytes(errMsg))
